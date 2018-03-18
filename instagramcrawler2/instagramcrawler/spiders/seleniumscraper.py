@@ -71,18 +71,10 @@ class InstagramCrawler:
 
         self.driver.find_element_by_partial_link_text(scrape_type).click()
         
-        ## scrape the followers/following accordingly
-        #xpath = "//div[@role='dialog']//li//a"
-        #xpath = "//div[@role='dialog']//a[1]"
-        #xpath = "//li//a"
-        #xpath = "html/body/div//li//a"
-        #xpath = "/html/body/div[2]/div/div[2]/div/div[2]/ul/div/li["+str(2)+"]/div/div[1]/div/div[1]/a"
-        
-        xpath = "//a[@class='_2g7d5 notranslate _o5iw8']"
+        ## scrape the followers/following accordingly      
+        xpath = "//a[@class='_2g7d5 notranslate _o5iw8'][1]"
         span = self.driver.find_elements_by_xpath(xpath)
-        
-        #span = self.driver.find_elements_by_id("FollowListContainer")
-        #span = self.driver.find_elements_by_class_name("_2g7d5 notranslate _o5iw8")
+
         print (span)
         
         print("\nSeguidores:")       
