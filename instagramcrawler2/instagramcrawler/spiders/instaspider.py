@@ -25,7 +25,7 @@ class InstaSpider(BaseSpider):
     def __init__(self):
         super(InstaSpider, self).__init__() 
         self.data = load("./data/data.json")
-	self.driver = webdriver.Chrome()
+        self.driver = webdriver.Chrome()
         self.instagram = InstagramCrawler(self.driver, self.data)
         self.instagram.run()
 

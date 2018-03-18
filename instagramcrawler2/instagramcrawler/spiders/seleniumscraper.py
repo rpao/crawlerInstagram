@@ -12,8 +12,8 @@ class InstagramCrawler:
 
     def __init__(self, driver, data):
         ## for log system
-        print "\n********************************init*****************************************\n"
-        print "Executing __init__\n"
+        print("\n********************************init*****************************************\n")
+        print("Executing __init__\n")
         
         ## self variables
 
@@ -33,13 +33,13 @@ class InstagramCrawler:
         
 
         ## for log system
-        print "\n\n\tData:" + self.data['USERNAME']
-        print "\tURL:" + self.url
-        print "\n**********************************end******************************************\n"
+        print("\n\n\tData:" + self.data['USERNAME'])
+        print("\tURL:" + self.url)
+        print("\n**********************************end******************************************\n")
 
     def login(self):
-        print "\n*******************************************************************************\n"
-        print "Executing login\n"
+        print("\n*******************************************************************************\n")
+        print("Executing login\n")
         self.driver.get(self.url_login)
 
         self.driver.find_element_by_xpath("//input[@name='username']").send_keys(self.data['USERNAME'])
@@ -54,7 +54,7 @@ class InstagramCrawler:
         except:
             print("\n\nLogin Fail!!!!")
 
-        print "\n*******************************************************************************\n"
+        print("\n*******************************************************************************\n")
         
         return
         """
@@ -66,8 +66,8 @@ class InstagramCrawler:
         
     def __click(self, scrape_type = "follower"):
         ## for log system
-        print "\n********************************init*****************************************\n"
-        print "Executing __click\n"
+        print("\n********************************init*****************************************\n")
+        print("Executing __click\n")
 
         self.driver.find_element_by_partial_link_text(scrape_type).click()
         
@@ -78,26 +78,26 @@ class InstagramCrawler:
         #xpath = "html/body/div//li//a"
         #xpath = "/html/body/div[2]/div/div[2]/div/div[2]/ul/div/li["+str(2)+"]/div/div[1]/div/div[1]/a"
         
-        #xpath = "//a[@class='_2g7d5 notranslate _o5iw8']"
-        #span = self.driver.find_elements_by_xpath(xpath)
+        xpath = "//a[@class='_2g7d5 notranslate _o5iw8']"
+        span = self.driver.find_elements_by_xpath(xpath)
         
         #span = self.driver.find_elements_by_id("FollowListContainer")
-        span = self.driver.find_elements_by_class_name("_2g7d5 notranslate _o5iw8")
-        print span
+        #span = self.driver.find_elements_by_class_name("_2g7d5 notranslate _o5iw8")
+        print (span)
         
-        print "\nSeguidores:"       
+        print("\nSeguidores:")       
         for item in span:
-            print item.text
-            print "\n"
+              print (item.text)
+              print("\n")
         
-        print "\n**********************************end******************************************\n"
+        print("\n**********************************end******************************************\n")
 
         return span
 
     def scrape(self):
         ## for log system
-        print "\n********************************init*****************************************\n"
-        print "Executing scrape\n"
+        print("\n********************************init*****************************************\n")
+        print("Executing scrape\n")
 
         self.driver.get(self.url+self.data['USERNAME'])
 
@@ -108,10 +108,10 @@ class InstagramCrawler:
         self.followers = self.__click("seguidor")
         
         ## for log system
-        print "\n\n\tQtd of Followers:" + str(self.qtdFol)
-        #print "\tFollowers:"
-        #print self.followers
-        print "\n**********************************end******************************************\n"
+        print("\n\n\tQtd of Followers:" + str(self.qtdFol))
+        #print("\tFollowers:")
+        #print (self.followers)
+        print("\n**********************************end******************************************\n")
 
         
     def run(self):
