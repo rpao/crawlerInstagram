@@ -10,10 +10,10 @@ Dependencias:
   instalação selenium: pip install selenium
   instalação pypiwin32: pip install pypiwin32
 
-Usage - executar spider:
+Executar spider:
   scrapy crawl instaspider
   
-Also, the crawler instaspider.py requires a path to json file. The JSON format is:
+Configure /data/data.json:
 
 {
     "USERNAME"  :   "your_user_name",
